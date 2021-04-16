@@ -1,5 +1,5 @@
 from app import app
-from flask import jsonify, abort, make_response, request
+from flask import jsonify, abort, make_response, request, url_for
 
 tasks = [
     {
@@ -65,8 +65,6 @@ def delete_task(task_id):
         abort(404)
     tasks.remove(task[0])
     return jsonify({'result': True})
-
-from flask import url_for
 
 def make_public_task(task):
     new_task = {}
